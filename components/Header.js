@@ -11,8 +11,8 @@ class Header extends Component{
                     </div>
                     <div class="header-right">
                         <Link href="/">Top</Link>
-                        <Link href="/signup">Sign up</Link>
-                        <Link href="/login">Log in</Link>
+                        {/* <Link href="/signup">Sign up</Link>
+                        <Link href="/login">Log in</Link> */}
                     </div>
                 </div>
             </header>
