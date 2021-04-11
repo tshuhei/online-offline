@@ -4,6 +4,8 @@ import thunkMiddleware from "redux-thunk";
 const initial = {
     username: "",
     target: "",
+    peer: null,
+    iscalled: false
 }
 
 function connectionReducer(state = initial, action){
@@ -11,12 +13,16 @@ function connectionReducer(state = initial, action){
         case "CREATE":
             return{
                 username: action.message,
-                target: state.target
+                target: state.target,
+                peer: state.peer,
+                iscalled: state.iscalled
             };
         case "TARGET":
             return{
                 username: state.username,
-                target : action.message
+                target: action.message,
+                peer: action.peer,
+                iscalled: action.iscalled,
             }
         default:
             return state;

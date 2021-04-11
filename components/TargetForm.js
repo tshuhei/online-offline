@@ -1,17 +1,27 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import Router from 'next/router';
+import Peer from 'skyway-js';
 
 
 class TargetForm extends Component{
 
     constructor(props){
         super(props);
-        this.state = {
-            target: "",
-        }
         this.doSubmit = this.doSubmit.bind(this);
         this.doChange = this.doChange.bind(this);
+        console.log(this.props.username);
+        let peer = new Peer(this.props.username,{
+            key: '76263a48-cad2-4f85-a676-1da2490a20c9',
+            debug: 3,
+        });
+        peer.on("call",mediaConnection => {
+            
+        });
+        this.state = {
+            target: "",
+            peer: peer
+        }
     }
 
     doSubmit(e){
@@ -21,6 +31,8 @@ class TargetForm extends Component{
         let action = {
             type: "TARGET",
             message: this.state.target,
+            peer: this.state.peer,
+            iscalled: true
         }
         this.props.dispatch(action);
         Router.push("/room");

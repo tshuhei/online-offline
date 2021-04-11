@@ -7,9 +7,35 @@ class Room extends Component{
 
     constructor(props){
         super(props);
-        this.state = {
-            target: "",
+        this.initializeScreenShare();
+        if(this.props.iscalled){
+            this.makeCall();
+        }else{
+            this.respondCall();
         }
+    }
+
+    initializeScreenShare(){
+        navigator.mediaDevices.getDisplayMedia({video: true})
+        .then( stream => {
+            //const videoElm = document.getElementById("my-video");
+            //videoElm.srcObject = stream;
+            //videoElm.play();
+            this.setState({
+                localStream: stream,
+            });
+        }).catch( error =>{
+            console.log("mediaDevice.getDisplayMedia() error:", error);
+            return;
+        })
+    }
+
+    makeCall(){
+        console.log("Make Call!");
+    }
+
+    respondCall(){
+        console.log("Respond Call");
     }
 
     render(){
