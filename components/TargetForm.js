@@ -60,6 +60,7 @@ class TargetForm extends Component{
     render(){
         return (
             <div>
+                <p>Your User ID: {this.props.username}</p>
                 <form>
                     <div>
                         <label for="target">Target User ID:</label>
