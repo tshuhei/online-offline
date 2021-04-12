@@ -24,10 +24,17 @@ class Room extends Component{
             this.setState({
                 localStream: stream,
             });
+            this.props.mediaConnection.replaceStream(stream);
         }).catch( error =>{
             console.log("mediaDevice.getDisplayMedia() error:", error);
             return;
         })
+        this.props.mediaConnection.on('stream', stream => {
+            // video要素にカメラ映像をセットして再生
+            const videoElm = document.getElementById('target-video');
+            videoElm.srcObject = stream;
+            videoElm.play();
+        });
     }
 
     makeCall(){
@@ -42,6 +49,7 @@ class Room extends Component{
         return (
             <div>
                 <p>This is room</p>
+                <video id="target-video" width="400px" autoplay muted playsinline></video>
             </div>
         );
     }
