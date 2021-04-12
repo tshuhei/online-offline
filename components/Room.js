@@ -31,6 +31,7 @@ class Room extends Component{
         })
         this.props.mediaConnection.on('stream', stream => {
             // video要素にカメラ映像をセットして再生
+            console.error("STREAM RECEIVED!");
             const videoElm = document.getElementById('target-video');
             videoElm.srcObject = stream;
             videoElm.play();
