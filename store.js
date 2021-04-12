@@ -5,7 +5,8 @@ const initial = {
     username: "",
     target: "",
     peer: null,
-    iscalled: false
+    iscalled: false,
+    mediaConnection: null
 }
 
 function connectionReducer(state = initial, action){
@@ -15,7 +16,8 @@ function connectionReducer(state = initial, action){
                 username: action.message,
                 target: state.target,
                 peer: state.peer,
-                iscalled: state.iscalled
+                iscalled: state.iscalled,
+                mediaConnection: state.mediaConnection
             };
         case "TARGET":
             return{
@@ -23,6 +25,7 @@ function connectionReducer(state = initial, action){
                 target: action.message,
                 peer: action.peer,
                 iscalled: action.iscalled,
+                mediaConnection: action.mediaConnection
             }
         default:
             return state;

@@ -16,8 +16,21 @@ class TargetForm extends Component{
             debug: 3,
         });
         peer.on("call",mediaConnection => {
-            
+            mediaConnection.answer(null);
+            let action = {
+                type: "TARGET",
+                message: mediaConnection.peer,
+                peer: this.state.peer,
+                iscalled: false,
+                mediaConnection: mediaConnection
+            }
+            this.props.dispatch(action);
+            Router.push("/room");
         });
+        peer.on("error", (error) => {
+            console.log(`${error.type}: ${error.message}`);
+            alert(`${error.type}: ${error.message}`);
+          });
         this.state = {
             target: "",
             peer: peer
@@ -26,13 +39,13 @@ class TargetForm extends Component{
 
     doSubmit(e){
         e.preventDefault();
-        console.log("Target Clicked!");
-        console.log(this.state.target);
+        const mediaConnection = this.state.peer.call(this.state.target,null);
         let action = {
             type: "TARGET",
             message: this.state.target,
             peer: this.state.peer,
-            iscalled: true
+            iscalled: true,
+            mediaConnection: mediaConnection
         }
         this.props.dispatch(action);
         Router.push("/room");
