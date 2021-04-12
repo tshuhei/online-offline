@@ -7,6 +7,13 @@ class Room extends Component{
 
     constructor(props){
         super(props);
+        this.props.mediaConnection.on('stream', stream => {
+            // video要素にカメラ映像をセットして再生
+            console.error("STREAM RECEIVED!");
+            const videoElm = document.getElementById('target-video');
+            videoElm.srcObject = stream;
+            videoElm.play();
+        });
         this.initializeScreenShare();
         if(this.props.iscalled){
             this.makeCall();
@@ -29,13 +36,6 @@ class Room extends Component{
             console.log("mediaDevice.getDisplayMedia() error:", error);
             return;
         })
-        this.props.mediaConnection.on('stream', stream => {
-            // video要素にカメラ映像をセットして再生
-            console.error("STREAM RECEIVED!");
-            const videoElm = document.getElementById('target-video');
-            videoElm.srcObject = stream;
-            videoElm.play();
-        });
     }
 
     makeCall(){
