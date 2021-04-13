@@ -50,6 +50,13 @@ class Room extends Component{
             videoElm.srcObject = stream;
             videoElm.play();
             const mediaConnection = this.props.peer.call(this.props.target,stream);
+            mediaConnection.on('stream', stream => {
+                // video要素にカメラ映像をセットして再生
+                console.error("STREAM RECEIVED!");
+                const videoElm = document.getElementById('target-video');
+                videoElm.srcObject = stream;
+                videoElm.play();
+            });
         }).catch(error =>{
             console.log("mediaDevice.getDisplayMedia() error:", error);
             return;
@@ -67,6 +74,13 @@ class Room extends Component{
             videoElm.srcObject = stream;
             videoElm.play();
             this.props.mediaConnection.answer(stream);
+            this.props.mediaConnection.on('stream', stream => {
+                // video要素にカメラ映像をセットして再生
+                console.error("STREAM RECEIVED!");
+                const videoElm = document.getElementById('target-video');
+                videoElm.srcObject = stream;
+                videoElm.play();
+            });
         }).catch(error =>{
             console.log("mediaDevice.getDisplayMedia() error:", error);
             return;
