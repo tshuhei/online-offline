@@ -49,7 +49,7 @@ class Room extends Component{
             const videoElm = document.getElementById("my-video");
             videoElm.srcObject = stream;
             videoElm.play();
-            const mediaConnection = this.props.peer.call(this.state.target,stream);
+            const mediaConnection = this.props.peer.call(this.props.target,stream);
         }).catch(error =>{
             console.log("mediaDevice.getDisplayMedia() error:", error);
             return;
