@@ -31,6 +31,9 @@ class Room extends Component{
             this.setState({
                 localStream: stream,
             });
+            const videoElm = document.getElementById("my-video");
+            videoElm.srcObject = stream;
+            videoElm.play();
             this.props.mediaConnection.replaceStream(stream);
         }).catch( error =>{
             console.log("mediaDevice.getDisplayMedia() error:", error);
@@ -49,7 +52,9 @@ class Room extends Component{
     render(){
         return (
             <div>
-                <p>This is room</p>
+                <p>My screen</p>
+                <video id="my-video" width="400px" autoplay muted playsinline></video>
+                <p>Target screen</p>
                 <video id="target-video" width="400px" autoplay muted playsinline></video>
             </div>
         );
