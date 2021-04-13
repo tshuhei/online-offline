@@ -5,11 +5,11 @@ class Header extends Component{
     render(){
         return (
             <header>
-                <div class="header-container">
-                    <div class="header-left">
+                <div className="header-container">
+                    <div className="header-left">
                         <h1>Online Offline</h1>
                     </div>
-                    <div class="header-right">
+                    <div className="header-right">
                         <Link href="/">Top</Link>
                         {/* <Link href="/signup">Sign up</Link>
                         <Link href="/login">Log in</Link> */}

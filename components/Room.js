@@ -20,6 +20,7 @@ class Room extends Component{
         }else{
             this.respondCall();
         }
+        this.doReplace = this.doReplace.bind(this);
     }
 
     initializeScreenShare(){
@@ -49,13 +50,18 @@ class Room extends Component{
         console.log("Respond Call");
     }
 
+    doReplace(e){
+        console.log("Replace done!");
+    }
+
     render(){
         return (
             <div>
                 <p>My screen</p>
-                <video id="my-video" width="400px" autoplay muted playsinline></video>
+                <video id="my-video" width="400px" autoPlay muted playsInline></video>
                 <p>Target screen</p>
-                <video id="target-video" width="400px" autoplay muted playsinline></video>
+                <video id="target-video" width="400px" autoPlay muted playsInline></video>
+                <button id="replace-button" onClick={this.doReplace}>Replace</button>
             </div>
         );
     }
