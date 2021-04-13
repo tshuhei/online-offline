@@ -46,7 +46,7 @@ class Room extends Component{
             this.setState({
                 localStream: stream,
             });
-            const VideoElm = document.getElementById("my-video");
+            const videoElm = document.getElementById("my-video");
             videoElm.srcObject = stream;
             videoElm.play();
             const mediaConnection = this.state.peer.call(this.state.target,stream);
@@ -63,7 +63,7 @@ class Room extends Component{
             this.setState({
                 localStream: stream,
             });
-            const VideoElm = document.getElementById("my-video");
+            const videoElm = document.getElementById("my-video");
             videoElm.srcObject = stream;
             videoElm.play();
             this.props.mediaConnection.answer(stream);
