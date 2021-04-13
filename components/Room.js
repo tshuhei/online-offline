@@ -52,6 +52,7 @@ class Room extends Component{
 
     doReplace(e){
         console.log("Replace done!");
+        this.props.mediaConnection.replaceStream(this.state.localStream);
     }
 
     render(){
