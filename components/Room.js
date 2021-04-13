@@ -12,7 +12,6 @@ class Room extends Component{
         }else{
             this.respondCall();
         }
-        this.doShare = this.doShare.bind(this);
     }
 
     makeCall(){
