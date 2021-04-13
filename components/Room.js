@@ -7,14 +7,6 @@ class Room extends Component{
 
     constructor(props){
         super(props);
-        // this.props.mediaConnection.on('stream', stream => {
-        //     // video要素にカメラ映像をセットして再生
-        //     console.error("STREAM RECEIVED!");
-        //     const videoElm = document.getElementById('target-video');
-        //     videoElm.srcObject = stream;
-        //     videoElm.play();
-        // });
-        //this.initializeScreenShare();
         if(this.props.iscalled){
             this.makeCall();
         }else{
@@ -23,24 +15,7 @@ class Room extends Component{
         this.doShare = this.doShare.bind(this);
     }
 
-    // initializeScreenShare(){
-    //     navigator.mediaDevices.getDisplayMedia({video: true})
-    //     .then( stream => {
-    //         this.setState({
-    //             localStream: stream,
-    //         });
-    //         const videoElm = document.getElementById("my-video");
-    //         videoElm.srcObject = stream;
-    //         videoElm.play();
-    //         this.props.mediaConnection.replaceStream(stream);
-    //     }).catch( error =>{
-    //         console.log("mediaDevice.getDisplayMedia() error:", error);
-    //         return;
-    //     })
-    // }
-
     makeCall(){
-        console.log("Make Call!");
         navigator.mediaDevices.getDisplayMedia({video: true})
         .then( stream => {
             this.setState({
@@ -52,7 +27,6 @@ class Room extends Component{
             const mediaConnection = this.props.peer.call(this.props.target,stream);
             mediaConnection.on('stream', stream => {
                 // video要素にカメラ映像をセットして再生
-                console.error("STREAM RECEIVED!");
                 const videoElm = document.getElementById('target-video');
                 videoElm.srcObject = stream;
                 videoElm.play();
@@ -64,7 +38,6 @@ class Room extends Component{
     }
 
     respondCall(){
-        console.log("Respond Call");
         navigator.mediaDevices.getDisplayMedia({video: true})
         .then( stream => {
             this.setState({
@@ -76,28 +49,11 @@ class Room extends Component{
             this.props.mediaConnection.answer(stream);
             this.props.mediaConnection.on('stream', stream => {
                 // video要素にカメラ映像をセットして再生
-                console.error("STREAM RECEIVED!");
                 const videoElm = document.getElementById('target-video');
                 videoElm.srcObject = stream;
                 videoElm.play();
             });
         }).catch(error =>{
-            console.log("mediaDevice.getDisplayMedia() error:", error);
-            return;
-        })
-    }
-
-    doShare(e){
-        navigator.mediaDevices.getDisplayMedia({video: true})
-        .then( stream => {
-            this.setState({
-                localStream: stream,
-            });
-            const videoElm = document.getElementById("my-video");
-            videoElm.srcObject = stream;
-            videoElm.play();
-            this.props.mediaConnection.replaceStream(stream);
-        }).catch( error =>{
             console.log("mediaDevice.getDisplayMedia() error:", error);
             return;
         })
@@ -110,7 +66,6 @@ class Room extends Component{
                 <video id="my-video" width="400px" autoPlay muted playsInline></video>
                 <p>Target screen</p>
                 <video id="target-video" width="400px" autoPlay muted playsInline></video>
-                <button id="replace-button" onClick={this.doShare}>Share screen</button>
             </div>
         );
     }

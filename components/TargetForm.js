@@ -12,7 +12,7 @@ class TargetForm extends Component{
         this.doChange = this.doChange.bind(this);
         let peer = new Peer(this.props.username,{
             key: '76263a48-cad2-4f85-a676-1da2490a20c9',
-            debug: 3,
+            //debug: 3,
         });
         peer.on("call",mediaConnection => {
             //mediaConnection.answer(null);
