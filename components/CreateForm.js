@@ -37,7 +37,7 @@ class CreateForm extends Component{
             <div>
                 <form>
                     <div>
-                        <label for="username">User name:</label>
+                        <label htmlFor="username">User name:</label>
                         <input type="text" id="username" name="username" onChange={this.doChange}/>
                     </div>
                     <div>

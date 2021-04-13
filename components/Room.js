@@ -14,20 +14,42 @@ class Room extends Component{
             videoElm.srcObject = stream;
             videoElm.play();
         });
-        this.initializeScreenShare();
+        //this.initializeScreenShare();
         if(this.props.iscalled){
             this.makeCall();
         }else{
             this.respondCall();
         }
+        this.doShare = this.doShare.bind(this);
     }
 
-    initializeScreenShare(){
+    // initializeScreenShare(){
+    //     navigator.mediaDevices.getDisplayMedia({video: true})
+    //     .then( stream => {
+    //         this.setState({
+    //             localStream: stream,
+    //         });
+    //         const videoElm = document.getElementById("my-video");
+    //         videoElm.srcObject = stream;
+    //         videoElm.play();
+    //         this.props.mediaConnection.replaceStream(stream);
+    //     }).catch( error =>{
+    //         console.log("mediaDevice.getDisplayMedia() error:", error);
+    //         return;
+    //     })
+    // }
+
+    makeCall(){
+        console.log("Make Call!");
+    }
+
+    respondCall(){
+        console.log("Respond Call");
+    }
+
+    doShare(e){
         navigator.mediaDevices.getDisplayMedia({video: true})
         .then( stream => {
-            //const videoElm = document.getElementById("my-video");
-            //videoElm.srcObject = stream;
-            //videoElm.play();
             this.setState({
                 localStream: stream,
             });
@@ -41,21 +63,14 @@ class Room extends Component{
         })
     }
 
-    makeCall(){
-        console.log("Make Call!");
-    }
-
-    respondCall(){
-        console.log("Respond Call");
-    }
-
     render(){
         return (
             <div>
                 <p>My screen</p>
-                <video id="my-video" width="400px" autoplay muted playsinline></video>
+                <video id="my-video" width="400px" autoPlay muted playsInline></video>
                 <p>Target screen</p>
-                <video id="target-video" width="400px" autoplay muted playsinline></video>
+                <video id="target-video" width="400px" autoPlay muted playsInline></video>
+                <button id="replace-button" onClick={this.doShare}>Share screen</button>
             </div>
         );
     }

@@ -63,7 +63,7 @@ class TargetForm extends Component{
                 <p>Your User ID: {this.props.username}</p>
                 <form>
                     <div>
-                        <label for="target">Target User ID:</label>
+                        <label htmlFor="target">Target User ID:</label>
                         <input type="text" id="target" name="target" onChange={this.doChange}/>
                     </div>
                     <div>
