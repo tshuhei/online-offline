@@ -10,13 +10,12 @@ class TargetForm extends Component{
         super(props);
         this.doSubmit = this.doSubmit.bind(this);
         this.doChange = this.doChange.bind(this);
-        console.log(this.props.username);
         let peer = new Peer(this.props.username,{
             key: '76263a48-cad2-4f85-a676-1da2490a20c9',
             debug: 3,
         });
         peer.on("call",mediaConnection => {
-            mediaConnection.answer(null);
+            //mediaConnection.answer(null);
             let action = {
                 type: "TARGET",
                 message: mediaConnection.peer,
@@ -39,13 +38,13 @@ class TargetForm extends Component{
 
     doSubmit(e){
         e.preventDefault();
-        const mediaConnection = this.state.peer.call(this.state.target,null);
+        //const mediaConnection = this.state.peer.call(this.state.target,null);
         let action = {
             type: "TARGET",
             message: this.state.target,
             peer: this.state.peer,
             iscalled: true,
-            mediaConnection: mediaConnection
+            mediaConnection: null
         }
         this.props.dispatch(action);
         Router.push("/room");
