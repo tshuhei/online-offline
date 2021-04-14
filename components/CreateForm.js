@@ -34,14 +34,14 @@ class CreateForm extends Component{
 
     render(){
         return (
-            <div>
+            <div className="create-container">
                 <form>
-                    <div>
-                        <label htmlFor="username">User name:</label>
-                        <input type="text" id="username" name="username" onChange={this.doChange}/>
+                    <div className="create-row">
+                        <label className="create-label" htmlFor="username">User name:</label>
+                        <input className="create-input" type="text" id="username" name="username" onChange={this.doChange}/>
                     </div>
                     <div>
-                        <input type="submit" value="Create account" onClick={this.doSubmit}/>
+                        <input className="create-submit" type="submit" value="Create account" onClick={this.doSubmit}/>
                     </div>
                 </form>
             </div>

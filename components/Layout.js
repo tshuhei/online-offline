@@ -13,6 +13,7 @@ class Layout extends Component{
                     <meta charSet="utf-8"/>
                     <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
                     <link rel="stylesheet" href="https://use.typekit.net/szh6iai.css"/>
+                    <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon"/>
                 </Head>
                 {style}
                 <Header />

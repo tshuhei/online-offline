@@ -502,4 +502,20 @@ template {
         font-size: 1.4rem;
     }
 
+    /* Create page settings*/
+    .create-container{
+        padding-top: 5rem;
+        padding-left: 6rem;
+        font-size: 1.4rem;
+    }
+    .create-row{
+        margin-bottom: 7rem;
+    }
+    .create-submit{
+        color: #c70067;
+    }
+    .create-input{
+        margin-left: 2rem;
+        border-bottom: 2px solid #c70067;
+    }
     `}</style>;
