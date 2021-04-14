@@ -7,10 +7,11 @@ class Header extends Component{
             <header>
                 <div className="header-container">
                     <div className="header-left">
-                        <h1>Online Offline</h1>
+                        <img className="header-logo" src="logo.png" />
                     </div>
                     <div className="header-right">
                         <Link href="/">Top</Link>
+                        <Link href="/">Language</Link>
                         {/* <Link href="/signup">Sign up</Link>
                         <Link href="/login">Log in</Link> */}
                     </div>
