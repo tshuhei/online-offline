@@ -3,7 +3,7 @@ import Head from "next/head";
 import style from "../public/Style";
 
 export default () => (
-            <div class="room">
+            <div>
                 <Head>
                 <title>Online Offline | Room</title>
                 <meta charSet="utf-8"/>

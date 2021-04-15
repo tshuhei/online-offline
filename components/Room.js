@@ -66,7 +66,7 @@ class Room extends Component{
                     <video id="my-video" autoPlay muted playsInline></video>
                 </div>
                 <div className="target-video-container">
-                    <p className="target-video-label">Target screen</p>
+                    <p className="target-video-label">{this.props.target}'s screen</p>
                     <video id="target-video" autoPlay muted playsInline></video>
                 </div>
             </div>
