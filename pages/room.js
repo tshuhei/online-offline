@@ -3,7 +3,7 @@ import Head from "next/head";
 import style from "../public/Style";
 
 export default () => (
-            <div>
+            <div class="room">
                 <Head>
                 <title>Online Offline | Room</title>
                 <meta charSet="utf-8"/>
@@ -13,8 +13,15 @@ export default () => (
                 </Head>
                 {style}
                 <style>{`
+                    html{
+                        height: 100%;
+                    }
                     body{
                         background-image: none;
+                        height: 100%;
+                    }
+                    div{
+                        height: 100%;
                     }
                 `}</style>
                 <Room/>

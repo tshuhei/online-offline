@@ -60,11 +60,15 @@ class Room extends Component{
 
     render(){
         return (
-            <div>
-                <p>My screen</p>
-                <video id="my-video" width="400px" autoPlay muted playsInline></video>
-                <p>Target screen</p>
-                <video id="target-video" width="400px" autoPlay muted playsInline></video>
+            <div className="room-container">
+                <div className="my-video-container">
+                    <p className="my-video-label">My screen</p>
+                    <video id="my-video" autoPlay muted playsInline></video>
+                </div>
+                <div className="target-video-container">
+                    <p className="target-video-label">Target screen</p>
+                    <video id="target-video" autoPlay muted playsInline></video>
+                </div>
             </div>
         );
     }

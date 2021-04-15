@@ -549,4 +549,38 @@ template {
     .target-submit{
         color: #c70067;
     }
+
+    /* Room page configurations */
+    .room-container{
+        display: flex;
+        padding: 1rem;
+        height: 100%;
+    }
+    .my-video-container{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 50%;
+        height: 100%;
+    }
+    .target-video-container{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 50%;
+        height: 100%;
+        justify-content: flex-end;
+    }
+    .my-video-label{
+        order: 2;
+    }
+    .target-video-label{
+        text-align: right;
+    }
+
+    #my-video{
+        width: 100%;
+    }
+
+    #target-video{
+        width: 100%;
+    }
     `}</style>;
