@@ -9,7 +9,7 @@ class Layout extends Component{
         return (
             <div>
                 <Head>
-                    <title>{this.props.title}</title>
+                    <title>Online Offline | {this.props.title}</title>
                     <meta charSet="utf-8"/>
                     <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
                     <link rel="stylesheet" href="https://use.typekit.net/szh6iai.css"/>

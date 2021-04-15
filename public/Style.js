@@ -518,4 +518,35 @@ template {
         margin-left: 2rem;
         border-bottom: 2px solid #c70067;
     }
+
+    /* Target page settings*/
+    .target-container{
+        padding-top: 5rem;
+        padding-left: 6rem;
+        font-size: 1.4rem;
+    }
+    .target-yourid{
+        display: flex;
+        padding-bottom: 2rem;
+    }
+    .target-yourid-label{
+        width: 10rem;
+    }
+    .target-yourid-value{
+        padding-left: 2rem;
+    }
+    .target-row{
+        padding-bottom: 7rem;
+    }
+    .target-label{
+        display: inline-block;
+        width: 10rem;
+    }
+    .target-input{
+        margin-left: 2rem;
+        border-bottom: 2px solid #c70067;
+    }
+    .target-submit{
+        color: #c70067;
+    }
     `}</style>;

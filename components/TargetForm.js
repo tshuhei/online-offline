@@ -58,15 +58,18 @@ class TargetForm extends Component{
 
     render(){
         return (
-            <div>
-                <p>Your User ID: {this.props.username}</p>
+            <div className="target-container">
+                <div className="target-yourid">
+                <p className="target-yourid-label">Your User name</p>
+                <p className="target-yourid-value">{this.props.username}</p>
+                </div>
                 <form>
-                    <div>
-                        <label htmlFor="target">Target User ID:</label>
-                        <input type="text" id="target" name="target" onChange={this.doChange}/>
+                    <div className="target-row">
+                        <label className="target-label" htmlFor="target">Target User name</label>
+                        <input className="target-input" type="text" id="target" name="target" onChange={this.doChange}/>
                     </div>
                     <div>
-                        <input type="submit" value="Connect" onClick={this.doSubmit}/>
+                        <input className="target-submit" type="submit" value="Connect" onClick={this.doSubmit}/>
                     </div>
                 </form>
             </div>
